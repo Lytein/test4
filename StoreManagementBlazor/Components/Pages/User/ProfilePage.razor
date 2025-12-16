@@ -1,0 +1,68 @@
+﻿@page "/profile"
+@using StoreManagementBlazorApp.Services
+@using StoreManagementBlazorApp.Entities
+@inject StoreService Store
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+<h1 class="mb-4">My Profile</h1>
+
+@if (Store.CurrentCustomer == null)
+{
+    <div class="alert alert-warning d-flex justify-content-between align-items-center">
+        <span>Bạn chưa đăng nhập để xem thông tin cá nhân.</span>
+        <button class="btn btn-sm btn-primary" @onclick="GoToLogin">Đăng nhập</button>
+    </div>
+}
+else
+{
+    <!-- USER INFORMATION -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title mb-3">Customer Information</h5>
+
+            <div class="row mb-2">
+                <div class="col-sm-3 fw-bold">Name</div>
+                <div class="col-sm-9">@Store.CurrentCustomer.name</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-3 fw-bold">Email</div>
+                <div class="col-sm-9">@Store.CurrentCustomer.email</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-3 fw-bold">Phone</div>
+                <div class="col-sm-9">@Store.CurrentCustomer.phone</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-3 fw-bold">Address</div>
+                <div class="col-sm-9">@(!string.IsNullOrWhiteSpace(Store.CurrentCustomer.address) ? Store.CurrentCustomer.address : "Chưa cập nhật")</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 fw-bold">Joined</div>
+                <div class="col-sm-9 text-muted">@Store.CurrentCustomer.created_at.ToString("dd/MM/yyyy")</div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (JS != null && Store.CurrentCustomer == null)
+        {
+            try
+            {
+                await Store.LoadAuthFromStorageAsync(); 
+                StateHasChanged(); // cập nhật UI
+            }
+            catch (JSDisconnectedException)
+            {
+                // JS chưa sẵn sàng, bỏ qua
+            }
+        }
+    }
+
+    private void GoToLogin() => Nav.NavigateTo("/", true);
+}
+

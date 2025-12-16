@@ -1,0 +1,746 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\pos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\pos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\services\\storeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:services\\storeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\entities\\promotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\promotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\services\\tokenstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:services\\tokenstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\promotions.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\promotions.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\customers.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\customers.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\products.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\products.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\user\\productdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\user\\productdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\entities\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\user\\cartpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\user\\cartpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\user\\checkoutpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\user\\checkoutpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\user\\storepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\user\\storepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\layout\\emptylayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\layout\\emptylayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\user\\profilepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\user\\profilepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\layout\\reconnectmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\layout\\reconnectmodal.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\entities\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\entities\\authresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\authresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\logoutbutton.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\logoutbutton.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\wwwroot\\js\\localstorage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:wwwroot\\js\\localstorage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\order.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\order.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\layout\\reconnectmodal.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\layout\\reconnectmodal.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\layout\\reconnectmodal.razor.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\layout\\reconnectmodal.razor.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\statistical.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\statistical.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\categories.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\categories.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\inventory.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\inventory.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\admin\\suppliers.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\suppliers.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\notfound.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\notfound.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\storemanagementblazorapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:storemanagementblazorapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|d:\\.net_web_api\\store_management_blazor\\storemanagementblazorapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StoreService.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Services\\StoreService.cs",
+              "RelativeDocumentMoniker": "Services\\StoreService.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Services\\StoreService.cs",
+              "RelativeToolTip": "Services\\StoreService.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAwwLAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T06:24:23.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "POS.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\POS.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\POS.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\POS.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\POS.razor",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAAAAABAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-16T12:47:30.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "Entities\\Customer.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\Customer.cs",
+              "RelativeToolTip": "Entities\\Customer.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAApwBcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T08:18:37.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "Services\\ApiService.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Services\\ApiService.cs",
+              "RelativeToolTip": "Services\\ApiService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T08:52:34.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Products.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Products.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Products.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Products.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Products.razor",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAAAwBAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T09:57:20.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Promotions.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Promotions.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Promotions.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Promotions.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Promotions.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:01:40.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Customers.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Customers.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Customers.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Customers.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Customers.razor",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACMAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T15:18:02.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Promotion.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\Promotion.cs",
+              "RelativeDocumentMoniker": "Entities\\Promotion.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\Promotion.cs",
+              "RelativeToolTip": "Entities\\Promotion.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA7wBcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T12:59:34.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADoAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T09:50:37.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TokenState.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Services\\TokenState.cs",
+              "RelativeDocumentMoniker": "Services\\TokenState.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Services\\TokenState.cs",
+              "RelativeToolTip": "Services\\TokenState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T05:31:48.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductDetails.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\ProductDetails.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\User\\ProductDetails.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\ProductDetails.razor",
+              "RelativeToolTip": "Components\\Pages\\User\\ProductDetails.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T08:45:54.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\CartItem.cs",
+              "RelativeDocumentMoniker": "Entities\\CartItem.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\CartItem.cs",
+              "RelativeToolTip": "Entities\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T10:38:32.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "Entities\\Product.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\Product.cs",
+              "RelativeToolTip": "Entities\\Product.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA+wCIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T10:26:51.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CartPage.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\CartPage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\User\\CartPage.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\CartPage.razor",
+              "RelativeToolTip": "Components\\Pages\\User\\CartPage.razor",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAACgAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:43:06.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CheckoutPage.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\CheckoutPage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\User\\CheckoutPage.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\CheckoutPage.razor",
+              "RelativeToolTip": "Components\\Pages\\User\\CheckoutPage.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:43:23.572Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "StorePage.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\StorePage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\User\\StorePage.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\StorePage.razor",
+              "RelativeToolTip": "Components\\Pages\\User\\StorePage.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAswCQAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:26:11.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Login.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Login.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Login.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Login.razor",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAAJMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T15:29:45.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EmptyLayout.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\EmptyLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\EmptyLayout.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\EmptyLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\EmptyLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T11:24:05.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProfilePage.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\ProfilePage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\User\\ProfilePage.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\User\\ProfilePage.razor",
+              "RelativeToolTip": "Components\\Pages\\User\\ProfilePage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-14T06:20:17.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T07:33:19.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\UserDto.cs",
+              "RelativeDocumentMoniker": "Entities\\UserDto.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\UserDto.cs",
+              "RelativeToolTip": "Entities\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T05:27:37.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AuthResult.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\AuthResult.cs",
+              "RelativeDocumentMoniker": "Entities\\AuthResult.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\AuthResult.cs",
+              "RelativeToolTip": "Entities\\AuthResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T05:28:57.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ReconnectModal.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\ReconnectModal.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\ReconnectModal.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\ReconnectModal.razor",
+              "RelativeToolTip": "Components\\Layout\\ReconnectModal.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-11T15:59:46.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Entities\\User.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Entities\\User.cs",
+              "RelativeToolTip": "Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T10:38:16.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LogoutButton.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\LogoutButton.razor",
+              "RelativeDocumentMoniker": "Components\\LogoutButton.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\LogoutButton.razor",
+              "RelativeToolTip": "Components\\LogoutButton.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T07:48:17.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "Components\\Routes.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Routes.razor",
+              "RelativeToolTip": "Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-11T16:00:12.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "App.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Components\\App.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\App.razor",
+              "RelativeToolTip": "Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-11T16:00:24.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Home.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T15:16:48.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "localStorage.js",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\wwwroot\\js\\localStorage.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\localStorage.js",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\wwwroot\\js\\localStorage.js",
+              "RelativeToolTip": "wwwroot\\js\\localStorage.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-14T15:09:08.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Order.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Order.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Order.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Order.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Order.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T09:56:01.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "Components\\_Imports.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\_Imports.razor",
+              "RelativeToolTip": "Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T15:34:50.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "bootstrap.js",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+              "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+              "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-14T15:06:15.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvxAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T15:25:54.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ReconnectModal.razor.js",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\ReconnectModal.razor.js",
+              "RelativeDocumentMoniker": "Components\\Layout\\ReconnectModal.razor.js",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\ReconnectModal.razor.js",
+              "RelativeToolTip": "Components\\Layout\\ReconnectModal.razor.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-13T11:20:51.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ReconnectModal.razor.css",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\ReconnectModal.razor.css",
+              "RelativeDocumentMoniker": "Components\\Layout\\ReconnectModal.razor.css",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Layout\\ReconnectModal.razor.css",
+              "RelativeToolTip": "Components\\Layout\\ReconnectModal.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-13T11:20:53.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Categories.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Categories.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Categories.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Categories.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Categories.razor",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAkwP8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-11T15:59:54.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Statistical.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Statistical.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Statistical.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Statistical.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Statistical.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:10:27.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Suppliers.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Suppliers.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Suppliers.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Suppliers.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Suppliers.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:00:43.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Inventory.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Inventory.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Inventory.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Admin\\Inventory.razor",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Inventory.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T10:06:37.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Error.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Error.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "Components\\Pages\\Error.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T15:32:10.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "NotFound.razor",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\NotFound.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\NotFound.razor",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Components\\Pages\\NotFound.razor",
+              "RelativeToolTip": "Components\\Pages\\NotFound.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-12T15:16:55.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "app.css",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "wwwroot\\app.css",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\wwwroot\\app.css",
+              "RelativeToolTip": "wwwroot\\app.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-13T06:26:39.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "StoreManagementBlazorApp.csproj",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\StoreManagementBlazorApp.csproj",
+              "RelativeDocumentMoniker": "StoreManagementBlazorApp.csproj",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\StoreManagementBlazorApp.csproj",
+              "RelativeToolTip": "StoreManagementBlazorApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-13T00:26:35.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-13T01:08:17.561Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

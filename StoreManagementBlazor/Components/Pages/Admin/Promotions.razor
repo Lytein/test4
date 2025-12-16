@@ -1,0 +1,370 @@
+﻿@page "/promotions"
+@using StoreManagementBlazorApp.Entities
+@using StoreManagementBlazorApp.Services
+@inject StoreService Store
+@inject ApiService PromotionAPI
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+<h1 class="text-3xl font-bold mb-2">Promotions</h1>
+
+<div class="d-flex justify-content-between align-items-center my-4">
+    <input class="form-control me-2" style="flex:1" placeholder="Search Products..." @bind="searchQuery" />
+    @if (Store.IsAdmin)
+    {
+        <button class="btn btn-primary" @onclick="() => OpenAdd()">Add Promotion</button>
+    }
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+            <th>DiscountValue</th>
+            <th>DiscountType</th>
+            <th>UsageLimit</th>
+            <th>UsedCount</th>
+            <th>Status</th>
+            @if (Store.IsAdmin)
+            {
+                <th class="text-center">Activity</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @if (PagedPromotions.Any())
+        {
+            @foreach (var p in PagedPromotions)
+            {
+                <tr>
+                    <td>@p.PromoCode</td>
+                    <td>@p.Description</td>
+                    <td>@p.DiscountValue</td>
+                    <td>@p.DiscountType</td>
+                    <td>@p.UsageLimit</td>
+                    <td>@p.UsedCount</td>
+                    <td>@p.Status</td>
+                    @if (Store.IsAdmin)
+                    {
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-outline-secondary" @onclick="() => OpenEdit(p)">Edit</button>
+                            <button class="btn btn-sm btn-outline-danger ms-2" @onclick="() => ConfirmDelete(p.PromoId)">Delete</button>
+                        </td>
+                    }
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="6">Loading...</td></tr>
+        }
+    </tbody>
+</table>
+
+@if (promotions != null && promotions.Count > PageSize)
+{
+    <nav class="mt-2">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="PrevPage">Previous</button>
+            </li>
+            @for (int i = 1; i <= TotalPages; i++)
+            {
+                <li class="page-item @(i == CurrentPage ? "active" : "")">
+                    <button class="page-link" @onclick="() => GoToPage(i)">@i</button>
+                </li>
+            }
+            <li class="page-item @(CurrentPage == TotalPages ? "disabled" : "")">
+                <button class="page-link" @onclick="NextPage">Next</button>
+            </li>
+        </ul>
+    </nav>
+}
+
+@if (showDialog)
+{
+    <div class="modal-backdrop fade show"></div>
+    <div class="modal show d-block">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">@dialogTitle</h5>
+                    <button class="btn-close" @onclick="CloseDialog"></button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body">
+
+                    <!-- Promo Code -->
+                    <label class="form-label">Promo Code</label>
+                    <input class="form-control mb-2"
+                           placeholder="SALE10"
+                           @bind="form.PromoCode" />
+
+                    <!-- Description -->
+                    <label class="form-label">Description</label>
+                    <input class="form-control mb-2"
+                           placeholder="Giảm 10% cho đơn hàng..."
+                           @bind="form.Description" />
+
+                    <!-- Discount Type -->
+                    <label class="form-label">Discount Type</label>
+                    <select class="form-select mb-2"
+                            @bind="form.DiscountType">
+                        <option value="percent">Percent (%)</option>
+                        <option value="fixed">Fixed (VNĐ)</option>
+                    </select>
+
+                    <!-- Discount Value -->
+                    <label class="form-label">
+                        Discount Value
+                        @(form.DiscountType == "percent" ? "(%)" : "(VNĐ)")
+                    </label>
+                    <input class="form-control mb-2"
+                           type="number"
+                           min="0"
+                           step="1"
+                           @bind="form.DiscountValue" />
+
+                    <!-- Min Order Amount -->
+                    <label class="form-label">Min Order Amount (VNĐ)</label>
+                    <input class="form-control mb-2"
+                           type="number"
+                           min="0"
+                           step="1000"
+                           @bind="form.MinOrderAmount" />
+
+                    <!-- Usage Limit -->
+                    <label class="form-label">Usage Limit</label>
+                    <input class="form-control mb-2"
+                           type="number"
+                           min="0"
+                           @bind="form.UsageLimit" />
+
+                    <!-- Used Count -->
+                    <label class="form-label">Used Count</label>
+                    <input class="form-control mb-2"
+                           type="number"
+                           min="0"
+                           disabled
+                           @bind="form.UsedCount" />
+
+                    <!-- Start Date -->
+                    <label class="form-label">Start Date</label>
+                    <input class="form-control mb-2"
+                           type="date"
+                           @bind="form.StartDate" />
+
+                    <!-- End Date -->
+                    <label class="form-label">End Date</label>
+                    <input class="form-control mb-2"
+                           type="date"
+                           min="@form.StartDate.ToString("yyyy-MM-dd")"
+                           @bind="form.EndDate" />
+
+                    <!-- Status -->
+                    <label class="form-label">Status</label>
+                    <select class="form-select mb-2"
+                            @bind="form.Status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseDialog">
+                        Cancel
+                    </button>
+                    <button class="btn btn-primary" @onclick="SavePromotion">
+                        Save
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (JS != null && Store.CurrentCustomer == null)
+        {
+            try
+            {
+                await Store.LoadAuthFromStorageAsync();
+                StateHasChanged(); // cập nhật UI
+            }
+            catch (JSDisconnectedException)
+            {
+                // JS chưa sẵn sàng, bỏ qua
+            }
+        }
+    }
+
+    string _searchQuery = "";
+    string searchQuery
+    {
+        get => _searchQuery;
+        set
+        {
+            if (_searchQuery != value)
+            {
+                _searchQuery = value;
+                CurrentPage = 1; // reset về trang đầu khi filter
+            }
+        }
+    }
+    bool showDialog;
+    string dialogTitle = "";
+    bool isEdit;
+
+    List<Promotion>? promotions;
+    Promotion form = new();
+
+    // Phân trang
+    private int CurrentPage = 1;
+    private int PageSize = 10;
+
+    private IEnumerable<Promotion> FilteredPromotions => promotions?.Where(p =>
+        (!string.IsNullOrEmpty(p.PromoCode) && p.PromoCode.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+        (!string.IsNullOrEmpty(p.Status) && p.Status.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+        (!string.IsNullOrEmpty(p.Description) && p.Description.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+        (!string.IsNullOrEmpty(p.UsageLimit.ToString()) && p.UsageLimit.ToString().Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+    ) ?? Enumerable.Empty<Promotion>();
+
+    private IEnumerable<Promotion> PagedPromotions =>
+        FilteredPromotions
+            .Skip((CurrentPage - 1) * PageSize)
+            .Take(PageSize);
+
+    private int TotalPages =>
+        (int)Math.Ceiling((double)FilteredPromotions.Count() / PageSize);
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPromotions();
+    }
+
+    async Task LoadPromotions()
+    {
+        try
+        {
+            promotions = await PromotionAPI.GetPromotions();
+            CurrentPage = 1; // Reset page khi reload
+        }
+        catch
+        {
+            promotions = new List<Promotion>();
+        }
+    }
+
+    void OpenAdd()
+    {
+        form = new Promotion
+        {
+            PromoCode = "",
+            Description = "",
+            DiscountType = "percent",          // mặc định
+            DiscountValue = 0,
+            StartDate = DateTime.Today,
+            EndDate = DateTime.Today.AddDays(7),
+            MinOrderAmount = 0,
+            UsageLimit = 0,
+            UsedCount = 0,
+            Status = "active"
+        };
+
+        dialogTitle = "Add Promotion";
+        isEdit = false;
+        showDialog = true;
+    }
+
+    void OpenEdit(Promotion p)
+    {
+        form = new Promotion
+        {
+            PromoId = p.PromoId,
+            PromoCode = p.PromoCode,
+            Description = p.Description,
+            DiscountType = p.DiscountType,
+            DiscountValue = p.DiscountValue,
+            StartDate = p.StartDate,
+            EndDate = p.EndDate,
+            MinOrderAmount = p.MinOrderAmount,
+            UsageLimit = p.UsageLimit,
+            UsedCount = p.UsedCount,
+            Status = p.Status
+        };
+
+        dialogTitle = "Edit Promotion";
+        isEdit = true;
+        showDialog = true;
+    }
+
+
+    async Task SavePromotion()
+    {
+        if (isEdit)
+        {
+            await PromotionAPI.UpdatePromotionAsync(form);
+        }
+        else
+        {
+            // form.created_at = DateTime.Now;
+            await PromotionAPI.AddPromotionAsync(form);
+        }
+
+        showDialog = false;
+        await LoadPromotions();
+    }
+
+    async Task ConfirmDelete(int id)
+    {
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Bạn có chắc chắn muốn xóa mã giảm giá này?");
+        if (!confirmed) return;
+
+        await DeletePromotion(id);
+    }
+
+    async Task DeletePromotion(int id)
+    {
+        await PromotionAPI.DeletePromotionAsync(id);
+        await LoadPromotions();
+    }
+
+    void CloseDialog() => showDialog = false;
+
+    void PrevPage()
+    {
+        if (CurrentPage > 1)
+        {
+            CurrentPage--;
+            StateHasChanged();
+        }
+    }
+
+    void NextPage()
+    {
+        if (CurrentPage < TotalPages)
+        {
+            CurrentPage++;
+            StateHasChanged();
+        }
+    }
+
+    void GoToPage(int page)
+    {
+        if (page < 1) page = 1;
+        if (page > TotalPages) page = TotalPages;
+
+        CurrentPage = page;
+        StateHasChanged();
+    }
+}

@@ -1,0 +1,47 @@
+﻿@page "/store/products/{Id:int}"
+@using StoreManagementBlazorApp.Services
+@using StoreManagementBlazorApp.Entities
+@inject StoreService Store
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+@if (Product == null)
+{
+    <div class="text-center py-5 text-muted">
+        <p>Product not found</p>
+    </div>
+}
+else
+{
+    <div class="row g-4 align-items-start">
+        <!-- Image -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="@(!string.IsNullOrEmpty(Product.Image) ? Product.Image : "/placeholder.svg")"
+                     class="card-img-top" style="width:100%; height:100%; object-fit:cover; max-height:500px;" />
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="col-md-6">
+            <h2 class="fw-bold">@Product.Name</h2>
+            <p class="text-muted mb-2">@Product.Category</p>
+            <p class="mb-3">@Product.unit</p>
+            <p class="fw-bold fs-4">@Product.Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</p>
+            <button class="btn btn-primary mt-3"
+                    @onclick="() => Store.AddToCart(Product, 1)">
+                Add to Cart 🛒
+            </button>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Product? Product { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Product = Store.Products.FirstOrDefault(p => p.Id == Id);
+    }
+}

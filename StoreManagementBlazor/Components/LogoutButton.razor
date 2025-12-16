@@ -1,0 +1,19 @@
+﻿@rendermode InteractiveServer
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+@using StoreManagementBlazorApp.Services
+@inject StoreService Store
+
+<button class="nav-link btn btn-link text-start"
+        @onclick="Logout">
+    Logout
+</button>
+
+@code {
+    private async Task Logout()
+    {
+        await Store.ClearStorageAsync();
+        Store.CurrentCustomer = null;
+        Nav.NavigateTo("/", true);
+    }
+}

@@ -1,0 +1,217 @@
+﻿@page "/"
+@layout EmptyLayout
+@rendermode InteractiveServer
+@using StoreManagementBlazorApp.Services
+@using StoreManagementBlazorApp.Entities
+@inject ApiService Api
+@inject NavigationManager Nav
+@inject StoreService Store
+@inject IJSRuntime JS
+
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light p-3">
+    <div class="card shadow-sm" style="width: 100%; max-width: 420px;">
+        <div class="card-body text-center">
+            <div class="mb-4">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto"
+                     style="width: 70px; height: 70px;">
+                    <i class="bi bi-shop h1"></i>
+                </div>
+            </div>
+
+            <h3 class="fw-bold">Welcome to Store</h3>
+            <p class="text-muted">Login or register to continue</p>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mt-4" id="authTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link @(showLogin ? "active" : "")" type="button" @onclick="() => showLogin = true">Login</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link @(!showLogin ? "active" : "")" type="button" @onclick="() => showLogin = false">Register</button>
+                </li>
+            </ul>
+
+            <div class="mt-3">
+                @if (showLogin)
+                {
+                    <!-- LOGIN FORM -->
+                    @if (!string.IsNullOrEmpty(error))
+                    {
+                        <div class="alert alert-danger py-2">@error</div>
+                    }
+
+                    <div class="text-start mt-2">
+                        <label class="form-label">Username</label>
+                        <input class="form-control" @bind="username" placeholder="Username" />
+                    </div>
+                    <div class="text-start mt-2">
+                        <label class="form-label">Password</label>
+                        <input class="form-control" type="password" @bind="password" placeholder="Password" />
+                    </div>
+                    <button class="btn btn-primary w-100 mt-3" @onclick="HandleLogin">Login</button>
+                }
+                else
+                {
+                    <!-- REGISTER FORM -->
+                    @if (!string.IsNullOrEmpty(regError))
+                    {
+                        <div class="alert alert-danger py-2">@regError</div>
+                    }
+
+                    <div class="text-start mt-2">
+                        <label class="form-label">Full Name</label>
+                        <input class="form-control" @bind="regFullName" placeholder="Full Name" />
+                    </div>
+                    <div class="text-start mt-2">
+                        <label class="form-label">Username</label>
+                        <input class="form-control" @bind="regUsername" placeholder="Username" />
+                    </div>
+                    <div class="text-start mt-2">
+                        <label class="form-label">Password</label>
+                        <input class="form-control" type="password" @bind="regPassword" placeholder="Password" />
+                    </div>
+                    <div class="text-start mt-2">
+                        <label class="form-label">Confirm Password</label>
+                        <input class="form-control" type="password" @bind="regConfirmPassword" placeholder="Confirm Password" />
+                    </div>
+                    <div class="text-start mt-2">
+                        <label class="form-label">Email</label>
+                        <input class="form-control" @bind="regEmail" />
+                    </div>
+                    <div class="text-start mt-2">
+                        <label class="form-label">Phone</label>
+                        <input class="form-control" @bind="regPhone" />
+                    </div>
+                    <div class="text-start mt-2">
+                        <label class="form-label">Address</label>
+                        <input class="form-control" @bind="regAddress" />
+                    </div>
+
+                    <button class="btn btn-success w-100 mt-3" @onclick="HandleRegister">Register</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    // --- login state ---
+    string username = "";
+    string password = "";
+    string error = "";
+
+    // --- register state ---
+    string regFullName = "";
+    string regUsername = "";
+    string regPassword = "";
+    string regConfirmPassword = "";
+    string regError = "";
+    string regEmail = "";
+    string regPhone = "";
+    string regAddress = "";
+
+    bool showLogin = true;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Store.LoadAuthFromStorageAsync();
+        }
+    }
+
+    private async Task HandleLogin()
+    {
+        error = "";
+        try
+        {
+            var auth = await Api.LoginAsync(username, password);
+            if (auth == null)
+            {
+                error = "Sai tài khoản hoặc mật khẩu";
+                return;
+            }
+
+            if (auth.Role == "admin")
+            {
+                Store.SetAdmin(auth.User, auth.Token ?? "");
+                await Store.SaveToStorageAsync();
+                Nav.NavigateTo("/index");
+                return;
+            }
+
+            if (auth.Role == "staff")
+            {
+                Store.SetStaff(auth.User, auth.Token ?? "");
+                await Store.SaveToStorageAsync();
+                Nav.NavigateTo("/index");
+                return;
+            }
+
+
+            if (auth.Role == "customer")
+            {
+                if (auth.Customer == null)
+                {
+                    error = "Không lấy được thông tin khách hàng";
+                    return;
+                }
+
+                Store.SetCustomer(auth.Customer, auth.Token ?? "");
+                await Store.SaveToStorageAsync(); // ✅ OK
+                Nav.NavigateTo("/index");
+                return;
+            }
+
+            error = "Không xác định quyền truy cập";
+        }
+        catch (Exception ex)
+        {
+            error = $"Login error: {ex.Message}";
+        }
+    }
+
+    private async Task HandleRegister()
+    {
+        regError = "";
+
+        if (string.IsNullOrWhiteSpace(regUsername) ||
+            string.IsNullOrWhiteSpace(regPassword) ||
+            string.IsNullOrWhiteSpace(regFullName))
+        {
+            regError = "Vui lòng nhập đủ thông tin.";
+            return;
+        }
+
+        if (regPassword != regConfirmPassword)
+        {
+            regError = "Mật khẩu xác nhận không trùng khớp.";
+            return;
+        }
+
+        try
+        {
+            bool success = await Api.RegisterAsync(
+                regFullName,
+                regUsername,
+                regPassword,
+                regEmail,
+                regPhone,
+                regAddress
+            );
+
+            if (!success)
+            {
+                regError = "Đăng ký thất bại (có thể username đã tồn tại)";
+                return;
+            }
+
+            regError = "Đăng ký thành công!";
+            showLogin = true;
+        }
+        catch (Exception ex)
+        {
+            regError = $"Lỗi không xác định: {ex.Message}";
+        }
+    }
+}
+

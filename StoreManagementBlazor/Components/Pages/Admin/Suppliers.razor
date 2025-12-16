@@ -1,0 +1,255 @@
+﻿@page "/suppliers"
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+<h1 class="text-3xl font-bold mb-2">Customers</h1>
+
+<div class="d-flex justify-content-between align-items-center my-4">
+    <input class="form-control me-2" style="flex:1" placeholder="Search customers..." @bind="searchQuery" />
+    <button class="btn btn-primary" @onclick="OpenAdd">Add Customer</button>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Created At</th>
+            <th class="text-center">Activity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (PagedCustomers.Any())
+        {
+            @foreach (var c in PagedCustomers)
+            {
+                <tr>
+                    <td>@c.Name</td>
+                    <td>@c.Email</td>
+                    <td>@c.Phone</td>
+                    <td>@c.Address</td>
+                    <td>@c.CreatedAt.ToString("dd/MM/yyyy")</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-secondary" @onclick="() => OpenEdit(c)">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger ms-2" @onclick="() => ConfirmDelete(c.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="6" class="text-center">No data available</td></tr>
+        }
+    </tbody>
+</table>
+
+@if (Customers.Count > PageSize)
+{
+    <nav class="mt-2">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="PrevPage">Previous</button>
+            </li>
+            @for (int i = 1; i <= TotalPages; i++)
+            {
+                <li class="page-item @(i == CurrentPage ? "active" : "")">
+                    <button class="page-link" @onclick="() => GoToPage(i)">@i</button>
+                </li>
+            }
+            <li class="page-item @(CurrentPage == TotalPages ? "disabled" : "")">
+                <button class="page-link" @onclick="NextPage">Next</button>
+            </li>
+        </ul>
+    </nav>
+}
+
+@if (showDialog)
+{
+    <div class="modal-backdrop fade show"></div>
+    <div class="modal show d-block">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@dialogTitle</h5>
+                    <button class="btn-close" @onclick="CloseDialog"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Name</p>
+                    <input class="form-control mb-2" placeholder="Name" @bind="form.Name" />
+                    <p>Email</p>
+                    <input class="form-control mb-2" placeholder="Email" @bind="form.Email" />
+                    <p>Phone</p>
+                    <input class="form-control mb-2" placeholder="Phone" @bind="form.Phone" />
+                    <p>Address</p>
+                    <input class="form-control mb-2" placeholder="Address" @bind="form.Address" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseDialog">Cancel</button>
+                    <button class="btn btn-primary" @onclick="SaveCustomer">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    string _searchQuery = "";
+    string searchQuery
+    {
+        get => _searchQuery;
+        set
+        {
+            if (_searchQuery != value)
+            {
+                _searchQuery = value;
+                CurrentPage = 1; // reset về trang đầu khi filter
+            }
+        }
+    }
+
+    bool showDialog;
+    string dialogTitle = "";
+    bool isEdit;
+
+    // Dữ liệu tạm thời
+    List<Customer> Customers = new();
+    Customer form = new();
+
+    // Phân trang
+    private int CurrentPage = 1;
+    private int PageSize = 10;
+
+    private IEnumerable<Customer> FilteredCustomers =>
+        Customers.Where(c =>
+            (!string.IsNullOrEmpty(c.Name) && c.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+            (!string.IsNullOrEmpty(c.Email) && c.Email.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+            (!string.IsNullOrEmpty(c.Phone) && c.Phone.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+            (!string.IsNullOrEmpty(c.Address) && c.Address.Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+        );
+
+    private IEnumerable<Customer> PagedCustomers =>
+        FilteredCustomers
+            .Skip((CurrentPage - 1) * PageSize)
+            .Take(PageSize);
+
+    private int TotalPages =>
+        (int)Math.Ceiling((double)FilteredCustomers.Count() / PageSize);
+
+    protected override void OnInitialized()
+    {
+        // Mock data tạm
+        Customers = new List<Customer>();
+        for (int i = 1; i <= 25; i++)
+        {
+            Customers.Add(new Customer
+            {
+                Id = i,
+                Name = $"Customer {i}",
+                Email = $"customer{i}@mail.com",
+                Phone = $"012345678{i % 10}",
+                Address = $"Address {i}",
+                CreatedAt = DateTime.Now.AddDays(-i)
+            });
+        }
+    }
+
+    void OpenAdd()
+    {
+        form = new Customer
+        {
+            Name = "",
+            Email = "",
+            Phone = "",
+            Address = "",
+            CreatedAt = DateTime.Now
+        };
+        dialogTitle = "Add Customer";
+        isEdit = false;
+        showDialog = true;
+    }
+
+    void OpenEdit(Customer c)
+    {
+        form = new Customer
+        {
+            Id = c.Id,
+            Name = c.Name,
+            Email = c.Email,
+            Phone = c.Phone,
+            Address = c.Address,
+            CreatedAt = c.CreatedAt
+        };
+        dialogTitle = "Edit Customer";
+        isEdit = true;
+        showDialog = true;
+    }
+
+    void SaveCustomer()
+    {
+        if (isEdit)
+        {
+            // Chỉ cập nhật mock data
+            var item = Customers.FirstOrDefault(x => x.Id == form.Id);
+            if (item != null)
+            {
+                item.Name = form.Name;
+                item.Email = form.Email;
+                item.Phone = form.Phone;
+                item.Address = form.Address;
+            }
+        }
+        else
+        {
+            form.Id = Customers.Count + 1;
+            Customers.Add(form);
+        }
+
+        showDialog = false;
+    }
+
+    async Task ConfirmDelete(int id)
+    {
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this customer?");
+        if (!confirmed) return;
+
+        DeleteCustomer(id);
+    }
+
+    void DeleteCustomer(int id)
+    {
+        var item = Customers.FirstOrDefault(x => x.Id == id);
+        if (item != null) Customers.Remove(item);
+    }
+
+    void CloseDialog() => showDialog = false;
+
+    void PrevPage()
+    {
+        if (CurrentPage > 1) CurrentPage--;
+    }
+
+    void NextPage()
+    {
+        if (CurrentPage < TotalPages) CurrentPage++;
+    }
+
+    void GoToPage(int page)
+    {
+        if (page < 1) page = 1;
+        if (page > TotalPages) page = TotalPages;
+        CurrentPage = page;
+    }
+
+    // Model tạm
+    public class Customer
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string Phone { get; set; } = "";
+        public string Address { get; set; } = "";
+        public DateTime CreatedAt { get; set; }
+    }
+}

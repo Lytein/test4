@@ -1,0 +1,97 @@
+﻿@page "/checkout"
+@using StoreManagementBlazorApp.Services
+@using System.Globalization
+@inject StoreService Store
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+@if (Store.Cart.Any())
+{
+    <h1 class="mb-4">Checkout</h1>
+
+    <div class="row g-4">
+        <!-- Shipping Information -->
+        <div class="col-lg-8">
+            <div class="card p-3">
+                <h5 class="card-title mb-3">Shipping Information</h5>
+
+                <div class="mb-2">
+                    <label class="form-label">Full Name</label>
+                    <input value="@Store.CurrentCustomer?.name" readonly class="form-control" />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Email</label>
+                    <input value="@Store.CurrentCustomer?.email" readonly class="form-control" />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Shipping Address</label>
+                    <textarea @bind="ShippingAddress" rows="4" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-4">
+            <div class="card sticky-top" style="top:20px;">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Order Summary</h5>
+
+                    @foreach (var item in Store.Cart)
+                    {
+                        <div class="d-flex justify-content-between small mb-1">
+                            <span>@item.Product.Name x item.Quantity</span>
+                            <span>
+                                @string.Format(new CultureInfo("vi-VN"), "{0:N0} đ", item.Product.Price * item.Quantity)
+                            </span>
+                        </div>
+                    }
+
+                    <hr />
+
+                    <div class="d-flex justify-content-between fw-bold mb-3">
+                        <span>Total</span>
+                        <span>@string.Format(new CultureInfo("vi-VN"), "{0:N0} đ"  ,Store.CartTotal)</span>
+                    </div>
+
+                    <button class="btn btn-primary w-100"
+                            @onclick="HandleCheckout"
+                            disabled="@string.IsNullOrEmpty(ShippingAddress)">
+                        Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center py-5 text-muted">
+        Your cart is empty, redirecting...
+    </div>
+}
+
+@code {
+    private string ShippingAddress { get; set; } = "";
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender && !Store.Cart.Any())
+        {
+            InvokeAsync(() => Navigation.NavigateTo("/store"));
+        }
+    }
+
+    private void HandleCheckout()
+    {
+        if (Store.CurrentCustomer == null || string.IsNullOrEmpty(ShippingAddress))
+            return;
+
+        // Simulate order creation
+        Console.WriteLine($"Order placed for {Store.CurrentCustomer.name} with address: {ShippingAddress}");
+
+        Store.ClearCart();
+        Navigation.NavigateTo("/store/profile");
+    }
+}

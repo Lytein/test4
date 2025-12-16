@@ -1,0 +1,139 @@
+﻿@using StoreManagementBlazorApp.Services
+@rendermode InteractiveServer
+@inject StoreService Store
+@inject IJSRuntime JS
+@inject StoreService Store
+
+
+@if (Store.IsLoggedIn)
+{
+    @if (Store.IsCustomer)
+    {
+        <div class="top-row ps-3 navbar navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" >Xin chào, @Store.CurrentCustomer.name</a>
+            </div>
+        </div>
+
+        <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="store">
+                <span class="bi bi-cart-fill-nav-menu"></span>
+                Mua hàng
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="cart">
+                <span class="bi bi-cart-fill-nav-menu"></span>
+                Giỏ hàng
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="checkout">
+                <span class="bi bi-cart-fill-nav-menu"></span>
+                Thanh toán
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="profile">
+                <span class="bi bi-cart-fill-nav-menu"></span>
+                Profile
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="">
+                <span class="bi bi-cart-fill-nav-menu"></span>
+                Xem bill
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link">
+                <LogoutButton />
+            </NavLink>
+        </div>
+    }
+    else
+    {
+        <div class="top-row ps-3 navbar navbar-dark">
+            <div class="container-fluid">
+                <div class="navbar-brand" >Tên: @Store.CurrentUser.Username</div>
+                <div class="navbar-brand" >Chức vụ: @Store.CurrentUser.Role</div>
+            </div>
+        </div>
+
+        <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+        <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+            <nav class="nav flex-column">
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="index" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="pos" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Pos
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="customers">
+                        <span class="bi bi-people-fill-nav-menu" aria-hidden="true"></span> Customers
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="products">
+                        <span class="bi bi-box-seam-fill-nav-menu" aria-hidden="true"></span> Products
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="categories">
+                        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Categories
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="inventories">
+                        <span class="bi bi-box-seam-fill-nav-menu" aria-hidden="true"></span> Inventory
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="suppliers">
+                        <span class="bi bi-truck-fill-nav-menu" aria-hidden="true"></span> Suppliers
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="orders">
+                        <span class="bi bi-cart-fill-nav-menu"></span>
+                        Orders
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="promotions">
+                        <span class="bi bi-bar-chart-fill-nav-menu" aria-hidden="true"></span> Promotions
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="statistical">
+                        <span class="bi bi-bar-chart-fill-nav-menu" aria-hidden="true"></span> Statistical
+                    </NavLink>
+                </div>
+            </nav>
+        </div>                    
+    }
+}
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (JS != null && Store.CurrentCustomer == null)
+        {
+            try
+            {
+                await Store.LoadAuthFromStorageAsync();
+                StateHasChanged(); // cập nhật UI
+            }
+            catch (JSDisconnectedException)
+            {
+                // JS chưa sẵn sàng, bỏ qua
+            }
+        }
+    }
+}

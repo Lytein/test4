@@ -1,0 +1,250 @@
+﻿@page "/customers"
+@using StoreManagementBlazorApp.Entities
+@using StoreManagementBlazorApp.Services
+@inject ApiService CustomerAPI
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+<h1 class="text-3xl font-bold mb-2">Customers</h1>
+
+<div class="d-flex justify-content-between align-items-center my-4">
+    <input class="form-control me-2" style="flex:1" placeholder="Search customers..." @bind="searchQuery" />
+    <button class="btn btn-primary" @onclick="() => OpenAdd()">Add Customer</button>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Created At</th>
+            <th class="text-center">Activity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (PagedCustomers.Any())
+        {
+            @foreach (var c in PagedCustomers)
+            {
+                <tr>
+                    <td>@c.name</td>
+                    <td>@c.email</td>
+                    <td>@c.phone</td>
+                    <td>@c.address</td>
+                    <td>@c.created_at.ToString("dd/MM/yyyy")</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-secondary" @onclick="() => OpenEdit(c)">Edit</button>
+                        <button class="btn btn-sm btn-outline-danger ms-2" @onclick="() => ConfirmDelete(c.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="6">Loading...</td></tr>
+        }
+    </tbody>
+</table>
+
+@if (customers != null && customers.Count > PageSize)
+{
+    <nav class="mt-2">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(CurrentPage == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="PrevPage">Previous</button>
+            </li>
+            @for (int i = 1; i <= TotalPages; i++)
+            {
+                <li class="page-item @(i == CurrentPage ? "active" : "")">
+                    <button class="page-link" @onclick="() => GoToPage(i)">@i</button>
+                </li>
+            }
+            <li class="page-item @(CurrentPage == TotalPages ? "disabled" : "")">
+                <button class="page-link" @onclick="NextPage">Next</button>
+            </li>
+        </ul>
+    </nav>
+}
+
+@if (showDialog)
+{
+    <div class="modal-backdrop fade show"></div>
+    <div class="modal show d-block">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@dialogTitle</h5>
+                    <button class="btn-close" @onclick="CloseDialog"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Name</p>
+                    <input class="form-control mb-2" placeholder="Name" @bind="form.name" />
+                    <p>Email</p>
+                    <input class="form-control mb-2" placeholder="Email" @bind="form.email" />
+                    <p>Phone</p>
+                    <input class="form-control mb-2" placeholder="Phone" @bind="form.phone" />
+                    <p>Address</p>
+                    <input class="form-control mb-2" placeholder="Address" @bind="form.address" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseDialog">Cancel</button>
+                    <button class="btn btn-primary" @onclick="SaveCustomer">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    string _searchQuery = "";
+    string searchQuery
+    {
+        get => _searchQuery;
+        set
+        {
+            if (_searchQuery != value)
+            {
+                _searchQuery = value;
+                CurrentPage = 1; // reset về trang đầu khi filter
+            }
+        }
+    }
+    bool showDialog;
+    string dialogTitle = "";
+    bool isEdit;
+
+    List<Customer>? customers;
+    Customer form = new();
+
+    // Phân trang
+    private int CurrentPage = 1;
+    private int PageSize = 10;
+
+    private IEnumerable<Customer> FilteredCustomers => customers?.Where(c =>
+        (!string.IsNullOrEmpty(c.name) && c.name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+        (!string.IsNullOrEmpty(c.phone) && c.phone.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+        (!string.IsNullOrEmpty(c.address) && c.address.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+        (!string.IsNullOrEmpty(c.email) && c.email.Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+    ) ?? Enumerable.Empty<Customer>();
+
+    private IEnumerable<Customer> PagedCustomers =>
+        FilteredCustomers
+            .Skip((CurrentPage - 1) * PageSize)
+            .Take(PageSize);
+
+    private int TotalPages =>
+        (int)Math.Ceiling((double)FilteredCustomers.Count() / PageSize);
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCustomers();
+    }
+
+    async Task LoadCustomers()
+    {
+        try
+        {
+            customers = await CustomerAPI.GetCustomersAsync();
+            CurrentPage = 1; // Reset page khi reload
+        }
+        catch
+        {
+            customers = new List<Customer>();
+        }
+    }
+
+    void OpenAdd()
+    {
+        // Khởi tạo form mới với các trường rỗng
+        form = new Customer
+        {
+            name = "",
+            email = "",
+            phone = "",
+            address = "",
+            created_at = DateTime.Now
+        };
+
+        dialogTitle = "Add Customer"; // Tiêu đề modal
+        isEdit = false;
+        showDialog = true; // Mở modal
+    }
+
+
+    void OpenEdit(Customer c)
+    {
+        form = new Customer
+        {
+            Id = c.Id,
+            name = c.name,
+            email = c.email,
+            phone = c.phone,
+            address = c.address,
+            created_at = c.created_at
+        };
+        dialogTitle = "Edit Customer";
+        isEdit = true;
+        showDialog = true;
+    }
+
+    async Task SaveCustomer()
+    {
+        if (isEdit)
+        {
+            await CustomerAPI.UpdateCustomerAsync(form);
+        }
+        else
+        {
+            form.created_at = DateTime.Now;
+            await CustomerAPI.AddCustomerAsync(form);
+        }
+
+        showDialog = false;
+        await LoadCustomers();
+    }
+
+    async Task ConfirmDelete(int id)
+    {
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Bạn có chắc chắn muốn xóa khách hàng này?");
+        if (!confirmed) return;
+
+        await DeleteCustomer(id);
+    }
+
+    async Task DeleteCustomer(int id)
+    {
+        await CustomerAPI.DeleteCustomerAsync(id);
+        await LoadCustomers();
+    }
+
+    void CloseDialog() => showDialog = false;
+
+    void PrevPage()
+    {
+        if (CurrentPage > 1) 
+        {
+            CurrentPage--;
+            StateHasChanged();
+        }
+    }
+
+    void NextPage()
+    {
+        if (CurrentPage < TotalPages)
+        {
+            CurrentPage++;
+            StateHasChanged();
+        }
+    }
+
+    void GoToPage(int page)
+    {
+        if (page < 1) page = 1;
+        if (page > TotalPages) page = TotalPages;
+
+        CurrentPage = page;
+        StateHasChanged();
+    }
+}
