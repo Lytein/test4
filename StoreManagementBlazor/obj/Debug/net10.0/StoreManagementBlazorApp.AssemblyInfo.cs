@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoreManagementBlazorApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83e23e123596a890b6ade1988d81c771862e1be7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1641b33885d1f59e9ccc1f76c13fa3260a333937")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoreManagementBlazorApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoreManagementBlazorApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

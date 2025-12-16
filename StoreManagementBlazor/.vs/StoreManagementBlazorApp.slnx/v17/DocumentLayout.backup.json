@@ -1,34 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\",
+  "WorkspaceRootPath": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\quocd\\onedrive\\desktop\\.netlamtai\\storemanagementblazor\\components\\pages\\user\\storepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\user\\storepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\phuc\\onedrive\\desktop\\storemanagementblazor\\components\\pages\\admin\\categories.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\pages\\admin\\categories.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\quocd\\onedrive\\desktop\\.netlamtai\\storemanagementblazor\\services\\storeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:services\\storeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\quocd\\onedrive\\desktop\\.netlamtai\\storemanagementblazor\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\phuc\\onedrive\\desktop\\storemanagementblazor\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\quocd\\onedrive\\desktop\\.netlamtai\\storemanagementblazor\\services\\tokenstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:services\\tokenstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\quocd\\onedrive\\desktop\\.netlamtai\\storemanagementblazor\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\quocd\\onedrive\\desktop\\.netlamtai\\storemanagementblazor\\wwwroot\\css\\pages\\store.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:wwwroot\\css\\pages\\store.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\quocd\\onedrive\\desktop\\.netlamtai\\storemanagementblazor\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|c:\\users\\phuc\\onedrive\\desktop\\storemanagementblazor\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF4D9201-0CD4-63C9-2E33-D13A0EA2662F}|StoreManagementBlazorApp.csproj|solutionrelative:entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StorePage.razor",
-              "DocumentMoniker": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Components\\Pages\\User\\StorePage.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\User\\StorePage.razor",
-              "ToolTip": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Components\\Pages\\User\\StorePage.razor",
-              "RelativeToolTip": "Components\\Pages\\User\\StorePage.razor",
-              "ViewState": "AgIAACAAAAAAAAAAAAAqwB8AAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-16T05:59:33.629Z",
+              "DocumentIndex": 1,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "Services\\ApiService.cs",
+              "ToolTip": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\Services\\ApiService.cs*",
+              "RelativeToolTip": "Services\\ApiService.cs*",
+              "ViewState": "AgIAAPcAAAAAAAAAAAAgwPwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T15:46:37.056Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StoreService.cs",
-              "DocumentMoniker": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Services\\StoreService.cs",
-              "RelativeDocumentMoniker": "Services\\StoreService.cs",
-              "ToolTip": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Services\\StoreService.cs",
-              "RelativeToolTip": "Services\\StoreService.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAA8wIUAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T02:59:41.767Z",
+              "DocumentIndex": 0,
+              "Title": "Categories.razor",
+              "DocumentMoniker": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\Components\\Pages\\Admin\\Categories.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Admin\\Categories.razor",
+              "ToolTip": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\Components\\Pages\\Admin\\Categories.razor*",
+              "RelativeToolTip": "Components\\Pages\\Admin\\Categories.razor*",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAkwLgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-16T15:47:42.016Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ApiService.cs",
-              "DocumentMoniker": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Services\\ApiService.cs",
-              "RelativeDocumentMoniker": "Services\\ApiService.cs",
-              "ToolTip": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Services\\ApiService.cs",
-              "RelativeToolTip": "Services\\ApiService.cs",
-              "ViewState": "AgIAALEAAAAAAAAAAAAiwBIAAAA2AAAAAAAAAA==",
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\Entities\\Category.cs*",
+              "RelativeToolTip": "Entities\\Category.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T14:30:50.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Components\\App.razor",
-              "RelativeDocumentMoniker": "Components\\App.razor",
-              "ToolTip": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Components\\App.razor",
-              "RelativeToolTip": "Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-15T15:11:18.374Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "store.css",
-              "DocumentMoniker": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\wwwroot\\css\\pages\\store.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\pages\\store.css",
-              "ToolTip": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\wwwroot\\css\\pages\\store.css",
-              "RelativeToolTip": "wwwroot\\css\\pages\\store.css",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAG4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-15T15:00:26.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "app.css",
-              "DocumentMoniker": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\wwwroot\\app.css",
-              "RelativeDocumentMoniker": "wwwroot\\app.css",
-              "ToolTip": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\wwwroot\\app.css",
-              "RelativeToolTip": "wwwroot\\app.css",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-15T14:38:53.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TokenState.cs",
-              "DocumentMoniker": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Services\\TokenState.cs",
-              "RelativeDocumentMoniker": "Services\\TokenState.cs",
-              "ToolTip": "C:\\Users\\quocd\\OneDrive\\Desktop\\.netlamtai\\StoreManagementBlazor\\Services\\TokenState.cs",
-              "RelativeToolTip": "Services\\TokenState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T14:30:57.611Z",
+              "WhenOpened": "2025-12-16T15:45:56.645Z",
               "EditorCaption": ""
             }
           ]

@@ -250,6 +250,37 @@ namespace StoreManagementBlazorApp.Services
             var response = await _http.DeleteAsync(route);
             return response.IsSuccessStatusCode;
         }
+
+        /* =====================
+           CATEGORIES
+        ===================== */
+        public async Task<List<Category>> GetCategoriesAsync()
+        {
+            // Backend: GET api/category
+            return await _http.GetFromJsonAsync<List<Category>>("api/category")
+                ?? new List<Category>();
+        }
+
+        public async Task<bool> AddCategoryAsync(Category category)
+        {
+            // Backend: POST api/category
+            var response = await _http.PostAsJsonAsync("api/category", category);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> UpdateCategoryAsync(Category category)
+        {
+            // Backend: PUT api/category/{id}
+            var response = await _http.PutAsJsonAsync($"api/category/{category.category_id}", category);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> DeleteCategoryAsync(int id)
+        {
+            // Backend: DELETE api/category/{id}
+            var response = await _http.DeleteAsync($"api/category/{id}");
+            return response.IsSuccessStatusCode;
+        }
     }
 
     /* =====================

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5VkVOTXrfzk=",
+  "dgSpecHash": "K2fi/QMCDO4=",
   "success": true,
-  "projectFilePath": "D:\\.Net_WEB_API\\store_management_blazor\\StoreManagementBlazorApp\\StoreManagementBlazorApp.csproj",
+  "projectFilePath": "C:\\Users\\Phuc\\OneDrive\\Desktop\\StoreManagementBlazor\\StoreManagementBlazorApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lamta\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.0\\microsoft.aspnetcore.app.internal.assets.10.0.0.nupkg.sha512"
+    "C:\\Users\\Phuc\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.1\\microsoft.aspnetcore.app.internal.assets.10.0.1.nupkg.sha512"
   ],
   "logs": []
 }
