@@ -1,50 +1,47 @@
-﻿@page "/suppliers"
+﻿@page "/inventories"
 @using StoreManagementBlazorApp.Entities
 @using StoreManagementBlazorApp.Services
 @inject ApiService Api
 @inject IJSRuntime JS
 @rendermode InteractiveServer
 
-<h1 class="text-3xl font-bold mb-2">Supplier Management</h1>
+<h1 class="text-3xl font-bold mb-2">Inventory Management</h1>
 
 <div class="d-flex justify-content-between align-items-center my-4">
-    <input class="form-control me-2"
-           style="flex:1"
-           placeholder="Search suppliers..."
+    <input class="form-control me-2" style="flex:1"
+           placeholder="Search inventories..."
            @bind="searchQuery"
            @bind:event="oninput" />
-    <button class="btn btn-primary" @onclick="OpenAdd">Add Supplier</button>
+    <button class="btn btn-primary" @onclick="OpenAdd">Add Inventory</button>
 </div>
 
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Supplier Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th class="text-center" style="width:200px">Activity</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th class="text-center" style="width: 200px;">Activity</th>
         </tr>
     </thead>
     <tbody>
-        @if (FilteredSuppliers.Any())
+        @if (FilteredInventories.Any())
         {
-            @foreach (var s in FilteredSuppliers)
+            @foreach (var i in FilteredInventories)
             {
                 <tr>
-                    <td>@s.supplier_id</td>
-                    <td>@s.supplier_name</td>
-                    <td>@s.phone</td>
-                    <td>@s.email</td>
-                    <td>@s.address</td>
+                    <td>@i.inventory_id</td>
+                    <td>@i.product_name</td>
+                    <td>@i.quantity</td>
+                    <td>@i.price</td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-outline-secondary"
-                                @onclick="() => OpenEdit(s)">
+                                @onclick="() => OpenEdit(i)">
                             Edit
                         </button>
                         <button class="btn btn-sm btn-outline-danger ms-2"
-                                @onclick="() => ConfirmDelete(s.supplier_id)">
+                                @onclick="() => ConfirmDelete(i.inventory_id)">
                             Delete
                         </button>
                     </td>
@@ -54,7 +51,7 @@
         else
         {
             <tr>
-                <td colspan="6" class="text-center">
+                <td colspan="5" class="text-center">
                     @if (isLoading)
                     {
                         <span>Loading...</span>
@@ -81,30 +78,27 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Supplier Name</label>
+                        <label class="form-label">Product Name</label>
                         <input class="form-control"
-                               placeholder="Enter supplier name"
-                               @bind="form.supplier_name" />
+                               placeholder="Enter product name"
+                               @bind="form.product_name" />
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Phone</label>
-                        <input class="form-control" @bind="form.phone" />
+                        <label class="form-label">Quantity</label>
+                        <input type="number" class="form-control"
+                               @bind="form.quantity" />
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Email</label>
-                        <input class="form-control" @bind="form.email" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Address</label>
-                        <input class="form-control" @bind="form.address" />
+                        <label class="form-label">Price</label>
+                        <input type="number" step="0.01" class="form-control"
+                               @bind="form.price" />
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" @onclick="CloseDialog">Cancel</button>
-                    <button class="btn btn-primary" @onclick="SaveSupplier">Save</button>
+                    <button class="btn btn-primary" @onclick="SaveInventory">Save</button>
                 </div>
             </div>
         </div>
@@ -112,36 +106,37 @@
 }
 
 @code {
-    private List<Supplier> suppliers = new();
-    private Supplier form = new();
+    private List<Inventory> inventories = new();
+    private Inventory form = new();
     private bool showDialog = false;
     private bool isEdit = false;
     private string dialogTitle = "";
     private string searchQuery = "";
     private bool isLoading = true;
 
-    private IEnumerable<Supplier> FilteredSuppliers =>
+    // SEARCH
+    private IEnumerable<Inventory> FilteredInventories =>
         string.IsNullOrWhiteSpace(searchQuery)
-            ? suppliers
-            : suppliers.Where(s =>
-                s.supplier_name != null &&
-                s.supplier_name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
+            ? inventories
+            : inventories.Where(i =>
+                i.product_name != null &&
+                i.product_name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadSuppliers();
+        await LoadInventories();
     }
 
-    private async Task LoadSuppliers()
+    private async Task LoadInventories()
     {
         isLoading = true;
         try
         {
-            suppliers = await Api.GetSuppliersAsync();
+            inventories = await Api.GetInventoriesAsync();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error loading suppliers: {ex.Message}");
+            Console.WriteLine($"Error loading inventories: {ex.Message}");
         }
         finally
         {
@@ -151,61 +146,68 @@
 
     private void OpenAdd()
     {
-        form = new Supplier();
-        dialogTitle = "Add Supplier";
+        form = new Inventory();
+        dialogTitle = "Add Inventory";
         isEdit = false;
         showDialog = true;
     }
 
-    private void OpenEdit(Supplier s)
+    private void OpenEdit(Inventory i)
     {
-        form = new Supplier
+        form = new Inventory
         {
-            supplier_id = s.supplier_id,
-            supplier_name = s.supplier_name,
-            phone = s.phone,
-            email = s.email,
-            address = s.address
+            inventory_id = i.inventory_id,
+            product_name = i.product_name,
+            quantity = i.quantity,
+            price = i.price
         };
-        dialogTitle = "Edit Supplier";
+        dialogTitle = "Edit Inventory";
         isEdit = true;
         showDialog = true;
     }
 
-    private async Task SaveSupplier()
+    private async Task SaveInventory()
     {
-        if (string.IsNullOrWhiteSpace(form.supplier_name)) return;
+        if (string.IsNullOrWhiteSpace(form.product_name)) return;
 
-        bool success = isEdit
-            ? await Api.UpdateSupplierAsync(form)
-            : await Api.AddSupplierAsync(form);
+        bool success;
+        if (isEdit)
+        {
+            success = await Api.UpdateInventoryAsync(form);
+        }
+        else
+        {
+            success = await Api.AddInventoryAsync(form);
+        }
 
         if (success)
         {
-            await LoadSuppliers();
+            await LoadInventories();
             CloseDialog();
         }
         else
         {
-            await JS.InvokeVoidAsync("alert", "An error occurred while saving.");
+            await JS.InvokeVoidAsync("alert", "An error occurred while saving inventory.");
         }
     }
 
     private async Task ConfirmDelete(int id)
     {
         bool confirmed = await JS.InvokeAsync<bool>(
-            "confirm", "Are you sure you want to delete this supplier?");
+            "confirm",
+            "Are you sure you want to delete this inventory?"
+        );
 
         if (confirmed)
         {
-            var success = await Api.DeleteSupplierAsync(id);
+            var success = await Api.DeleteInventoryAsync(id);
             if (success)
             {
-                await LoadSuppliers();
+                await LoadInventories();
             }
             else
             {
-                await JS.InvokeVoidAsync("alert", "Cannot delete supplier.");
+                await JS.InvokeVoidAsync("alert", "Cannot delete inventory.");
             }
         }
     }

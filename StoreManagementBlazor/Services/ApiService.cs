@@ -1,4 +1,5 @@
-﻿using StoreManagementBlazorApp.Entities;
+﻿using StoreManagementBlazorApp.Components.Pages.Admin;
+using StoreManagementBlazorApp.Entities;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using static System.Net.WebRequestMethods;
@@ -15,16 +16,23 @@ namespace StoreManagementBlazorApp.Services
             _http = http;
             _token = token;
         }
-        /* Categories
-         */
-
+        /* Categories*/
+        
+        public async Task<List<Category>> GetCategories()
+        {
+            return await _http.GetFromJsonAsync<List<Category>>("api/category")
+                ?? new List<Category>();
+        }
 
         /* Product*/
         public async Task<List<Product>> GetProducts()
         {
+            var products = await _http.GetFromJsonAsync<List<Product>>("api/product");
 
+         
             return await _http.GetFromJsonAsync<List<Product>>("api/product")
-                ?? new List<Product>();
+        ?? new List<Product>();
+
         }
 
         public async Task<Product?> AddProductAsync(Product product)
@@ -152,6 +160,22 @@ namespace StoreManagementBlazorApp.Services
                 return new List<UserDto>();
             }
         }
+        public async Task<bool> RegisterUserAsync(
+            string fullName,
+            string username,
+            string password)
+        {
+            var res = await _http.PostAsJsonAsync(
+                "api/user/register",
+                new
+                {
+                    full_name = fullName,
+                    username,
+                    password
+                });
+
+            return res.IsSuccessStatusCode;
+        }
 
         /* =====================
            CUSTOMERS
@@ -192,6 +216,20 @@ namespace StoreManagementBlazorApp.Services
                 return null;
             }
         }
+
+        /* =====================
+           ORDER + PAYMENT
+        ===================== */
+        public async Task<Order?> CreateOrderAsync(CreateOrderDto dto)
+        {
+            return await PostAsync<CreateOrderDto, Order>("api/order", dto);
+        }
+        public async Task<Payment?> PayAsync(CreatePaymentDto dto)
+        {
+            return await PostAsync<CreatePaymentDto, Payment>("api/payment", dto);
+        }
+
+
         /* =====================
            PROMOTION
         ===================== */
@@ -204,7 +242,7 @@ namespace StoreManagementBlazorApp.Services
 
         public async Task<Promotion?> AddPromotionAsync(Promotion promotion)
         {
-            var response = await _http.PostAsJsonAsync("api/customer", promotion);
+            var response = await _http.PostAsJsonAsync("api/promotion", promotion);
             return response.IsSuccessStatusCode
                 ? await response.Content.ReadFromJsonAsync<Promotion>()
                 : null;
@@ -281,6 +319,91 @@ namespace StoreManagementBlazorApp.Services
             var response = await _http.DeleteAsync($"api/category/{id}");
             return response.IsSuccessStatusCode;
         }
+
+        /* =====================
+        INVENTORIES
+        ===================== */
+
+        public async Task<List<Inventory>> GetInventoriesAsync()
+        {
+            // Backend: GET api/inventory
+            return await _http.GetFromJsonAsync<List<Inventory>>("api/inventory")
+                ?? new List<Inventory>();
+        }
+
+        public async Task<bool> AddInventoryAsync(Inventory inventory)
+        {
+            // Backend: POST api/inventory
+            var response = await _http.PostAsJsonAsync("api/inventory", inventory);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> UpdateInventoryAsync(Inventory inventory)
+        {
+            // Backend: PUT api/inventory/{id}
+            var response = await _http.PutAsJsonAsync(
+                $"api/inventory/{inventory.inventory_id}", inventory
+            );
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> DeleteInventoryAsync(int id)
+        {
+            // Backend: DELETE api/inventory/{id}
+            var response = await _http.DeleteAsync($"api/inventory/{id}");
+            return response.IsSuccessStatusCode;
+        }
+
+        /* =====================
+        SUPPLIERS
+        ===================== */
+        public async Task<List<Supplier>> GetSuppliersAsync()
+        {
+            // Backend: GET api/supplier
+            return await _http.GetFromJsonAsync<List<Supplier>>("api/supplier")
+                   ?? new List<Supplier>();
+        }
+
+        public async Task<bool> AddSupplierAsync(Supplier supplier)
+        {
+            // Backend: POST api/supplier
+            var response = await _http.PostAsJsonAsync("api/supplier", supplier);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> UpdateSupplierAsync(Supplier supplier)
+        {
+            // Backend: PUT api/supplier/{id}
+            var response = await _http.PutAsJsonAsync(
+                $"api/supplier/{supplier.supplier_id}", supplier);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> DeleteSupplierAsync(int id)
+        {
+            // Backend: DELETE api/supplier/{id}
+            var response = await _http.DeleteAsync($"api/supplier/{id}");
+            return response.IsSuccessStatusCode;
+        }
+
+        /* =====================
+        ORDERS
+        ===================== */
+        public async Task<List<Order>> GetOrdersAsync()
+        {
+            // Backend: GET api/order
+            return await _http.GetFromJsonAsync<List<Order>>("api/order")
+                   ?? new List<Order>();
+        }
+
+        public async Task<bool> DeleteOrderAsync(int id)
+        {
+            // Backend: DELETE api/order/{id}
+            var response = await _http.DeleteAsync($"api/order/{id}");
+            return response.IsSuccessStatusCode;
+        }
+
+
     }
 
     /* =====================
@@ -301,5 +424,39 @@ namespace StoreManagementBlazorApp.Services
         public string token { get; set; } = "";
         public Customer customer { get; set; } = null!;
     }
-    
+
+    /* =====================
+       ORDER RESPONSE DTOs
+    ===================== */
+    public class CreateOrderDto
+    {
+        public int? customer_id { get; set; }
+        public int? user_id { get; set; }
+        public int? promo_id { get; set; }
+        public OrderType order_type { get; set; } // ENUM
+        public List<CreateOrderItemDto> items { get; set; } = new();
     }
+
+    public enum OrderType
+    {
+        online,
+        pos
+    }
+
+    public class CreateOrderItemDto
+    {
+        public int product_id { get; set; }
+        public int quantity { get; set; }
+        public decimal price { get; set; }
+    }
+    /* =====================
+       PAYMENT RESPONSE DTOs
+    ===================== */    
+    public class CreatePaymentDto
+    {
+        public int order_id { get; set; }
+        public PaymentMethod payment_method { get; set; }
+    }
+
+
+}

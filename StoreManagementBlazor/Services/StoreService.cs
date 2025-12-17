@@ -23,6 +23,7 @@ namespace StoreManagementBlazorApp.Services
 
         public List<Product> Products { get; private set; } = new();
         public async Task LoadProductsAsync()
+
         {
             Products = await _api.GetProducts();
         }
@@ -37,7 +38,7 @@ namespace StoreManagementBlazorApp.Services
         /* =========================
            CART
         ========================= */
-        public List<CartItem> Cart { get; private set; } = new();
+        public List<CartItem> Cart { get; private set   ; } = new();
         public void AddToCart(Product product, int quantity)
         {
             if (quantity <= 0) return;
@@ -118,6 +119,54 @@ namespace StoreManagementBlazorApp.Services
             ClearCart();
             OnChange?.Invoke();
         }
+        /* =========================
+           CHECKOUT
+        ========================= */
+
+        public async Task<bool> CheckoutPOS(
+        PaymentMethod paymentMethod,
+        int? promoId = null)
+        {
+            if (!Cart.Any() || CurrentUser == null)
+                return false;
+
+            // 1️⃣ Tạo order
+            var orderDto = new CreateOrderDto
+            {
+                user_id = CurrentUser.User_Id,
+                promo_id = promoId,
+                order_type = OrderType.pos, // ✅ ENUM
+                items = Cart.Select(c => new CreateOrderItemDto
+                {
+                    product_id = c.Product.Id,
+                    quantity = c.Quantity,
+                    price = c.Product.Price
+                }).ToList()
+            };
+
+            var order = await _api.CreateOrderAsync(orderDto);
+            if (order == null)
+                return false;
+
+            // 2️⃣ Thanh toán
+            var payment = await _api.PayAsync(new CreatePaymentDto
+            {
+                order_id = order.order_id,
+                payment_method = paymentMethod
+            });
+
+            if (payment == null)
+                return false;
+
+            await LoadProductsAsync();
+
+            // 3️⃣ Clear cart
+            ClearCart();
+            OnChange?.Invoke();
+
+            return true;
+        }
+
 
 
         public async Task LoadAuthFromStorageAsync()

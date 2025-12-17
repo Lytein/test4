@@ -31,7 +31,7 @@ else
                         </div>
                         <div class="col">
                             <h5 class="card-title mb-1">@item.Product.Name</h5>
-                            <p class="text-muted mb-1">@item.Product.Category</p>
+                            <p class="text-muted mb-1">@item.Product.category.category_name</p>
                             <p class="fw-bold mb-0">
                                 @string.Format(new CultureInfo("vi-VN"), "{0:N0} đ", item.Product.Price)
                             </p>

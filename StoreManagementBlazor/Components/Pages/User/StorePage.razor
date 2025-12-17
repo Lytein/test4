@@ -33,7 +33,7 @@
                 </div>
                 <!-- Product Info -->
                 <div class="card-body d-flex flex-column">
-                    <small class="text-muted">@product.Category</small>
+                        <small class="text-muted">@product.category.category_name</small>
                     <h5 class="card-title text-truncate mt-1">@product.Name</h5>
                     <p class="card-text text-truncate-2-lines text-muted mb-2">@product.unit</p>
                     <p class="fw-bold mt-auto mb-2">@product.Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</p>
@@ -58,14 +58,12 @@
         private string SearchQuery = "";
         private string FilterCategory = "all";
 
-        private List<string> Categories = new()
-        {
-        "Electronics", "Fashion", "Home", "Sports", "Books"
-        };
+
+        private List<string> Categories = new();
 
         private IEnumerable<Product> FilteredProducts =>
         Store.Products.Where(p =>
-        (FilterCategory == "all" || p.Category == FilterCategory) &&
+        (FilterCategory == "all" || p.category.category_name == FilterCategory) &&
         (string.IsNullOrWhiteSpace(SearchQuery) ||
         p.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase))
         );
@@ -73,9 +71,15 @@
         protected override async Task OnInitializedAsync()
         {
             await Store.LoadProductsAsync();
+            Categories = Store.Products
+            .Where(p => p.category.category_name != null)
+            .Select(p => p.category?.category_name)
+            .Distinct()
+            .ToList();
             Console.WriteLine($"UI products: {Store.Products.Count}");
         }
     }
+
 
 
 </div>

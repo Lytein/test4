@@ -1,0 +1,119 @@
+﻿@page "/orders"
+@using StoreManagementBlazorApp.Entities
+@using StoreManagementBlazorApp.Services
+@inject ApiService Api
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+<h1 class="text-3xl font-bold mb-2">Order Management</h1>
+
+<div class="d-flex justify-content-between align-items-center my-4">
+    <input class="form-control me-2"
+           style="flex:1"
+           placeholder="Search orders..."
+           @bind="searchQuery"
+           @bind:event="oninput" />
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Order Date</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th class="text-center" style="width:150px">Activity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (FilteredOrders.Any())
+        {
+            @foreach (var o in FilteredOrders)
+            {
+                <tr>
+                    <td>@o.order_id</td>
+                    <td>@o.order_date.ToString("dd/MM/yyyy")</td>
+                    <td>@o.customer_name</td>
+                    <td>@o.total_amount.ToString("N0")</td>
+                    <td>@o.status</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-danger"
+                                @onclick="() => ConfirmDelete(o.order_id)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">
+                    @if (isLoading)
+                    {
+                        <span>Loading...</span>
+                    }
+                    else
+                    {
+                        <span>No data available</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Order> orders = new();
+    private string searchQuery = "";
+    private bool isLoading = true;
+
+    private IEnumerable<Order> FilteredOrders =>
+        string.IsNullOrWhiteSpace(searchQuery)
+            ? orders
+            : orders.Where(o =>
+                o.customer_name != null &&
+                o.customer_name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadOrders();
+    }
+
+    private async Task LoadOrders()
+    {
+        isLoading = true;
+        try
+        {
+            orders = await Api.GetOrdersAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading orders: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task ConfirmDelete(int id)
+    {
+        bool confirmed = await JS.InvokeAsync<bool>(
+            "confirm", "Are you sure you want to delete this order?");
+
+        if (confirmed)
+        {
+            var success = await Api.DeleteOrderAsync(id);
+            if (success)
+            {
+                await LoadOrders();
+            }
+            else
+            {
+                await JS.InvokeVoidAsync("alert", "Cannot delete order.");
+            }
+        }
+    }
+}

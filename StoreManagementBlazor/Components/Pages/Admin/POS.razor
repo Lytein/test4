@@ -258,7 +258,14 @@
             Subtotal >= p.MinOrderAmount &&
             (p.UsageLimit == 0 || p.UsedCount < p.UsageLimit)
         );
-
+        foreach (var p in Promotions)
+        {
+            Console.WriteLine($"{p.PromoCode} | " +
+                $"Status:{p.Status} | " +
+                $"Date:{p.StartDate:d}-{p.EndDate:d} | " +
+                $"Min:{p.MinOrderAmount} | " +
+                $"Used:{p.UsedCount}/{p.UsageLimit}");
+        }
 
         if (promo == null)
         {
@@ -276,9 +283,21 @@
         DiscountCode = "";
     }
 
-    void Checkout()
+    async Task Checkout()
     {
-        Store.ClearCart();
-        RemoveDiscount();
+        var success = await Store.CheckoutPOS(
+            PaymentMethod.cash,
+            _appliedPromotion?.PromoId
+        );
+
+        if (success)
+        {
+            RemoveDiscount();
+            // TODO: show toast "Thanh toán thành công"
+        }
+        else
+        {
+            // TODO: show error
+        }
     }
 }

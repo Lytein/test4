@@ -25,7 +25,7 @@ else
         <!-- Product Info -->
         <div class="col-md-6">
             <h2 class="fw-bold">@Product.Name</h2>
-            <p class="text-muted mb-2">@Product.Category</p>
+            <p class="text-muted mb-2">@Product.category.category_name</p>
             <p class="mb-3">@Product.unit</p>
             <p class="fw-bold fs-4">@Product.Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</p>
             <button class="btn btn-primary mt-3"

@@ -46,16 +46,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxDdXN0b21lcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/Inventory.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxJbnZlbnRvcnkucmF6b3I=
+[C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/Inventories.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxJbnZlbnRvcmllcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/Order.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxPcmRlci5yYXpvcg==
+[C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/Orders.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxPcmRlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/POS.razor]
@@ -68,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/Promotions.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxQcm9tb3Rpb25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/RegisterForStaff.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblxSZWdpc3RlckZvclN0YWZmLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Phuc/OneDrive/Desktop/StoreManagementBlazor/Components/Pages/Admin/Statistical.razor]

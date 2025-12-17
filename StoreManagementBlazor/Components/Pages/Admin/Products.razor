@@ -38,7 +38,7 @@
             {
                 <tr>
                     <td>@p.Name</td>
-                    <td>@p.Category</td>
+                    <td>@p.category?.category_name</td>
                     <td>@p.bar_code</td>
                     <td>@p.unit</td>
                     <td>@p.Price</td>
@@ -94,7 +94,7 @@
                     <p>Name</p>
                     <input class="form-control mb-2" placeholder="Name" @bind="form.Name" />
                     <p>Category</p>
-                    <input class="form-control mb-2" placeholder="Email" @bind="form.Category" />
+                    <input class="form-control mb-2" placeholder="Email" @bind="form.category?.category_name" />
                     <p>Unit</p>
                     <input class="form-control mb-2" placeholder="Phone" @bind="form.unit" />
                     <p>Price</p>
@@ -152,7 +152,7 @@
 
     private IEnumerable<Product> FilteredProducts => products?.Where(p =>
         (!string.IsNullOrEmpty(p.Name) && p.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
-        (!string.IsNullOrEmpty(p.Category) && p.Category.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
+        (!string.IsNullOrEmpty(p.category.category_name) && p.category.category_name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
         (!string.IsNullOrEmpty(p.unit) && p.unit.Contains(searchQuery, StringComparison.OrdinalIgnoreCase)) ||
         (!string.IsNullOrEmpty(p.Price.ToString()) && p.Price.ToString().Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
     ) ?? Enumerable.Empty<Product>();
@@ -189,7 +189,7 @@
         form = new Product
         {
             Name = "",
-            Category = "",
+            category = null,
             bar_code = "",
             unit = "",
             Price = 0,
@@ -208,7 +208,7 @@
         {
             Id = p.Id,
             Name = p.Name,
-            Category = p.Category,
+            category = p.category,
             Price = p.Price,
             unit = p.unit,
             created_at = p.created_at
